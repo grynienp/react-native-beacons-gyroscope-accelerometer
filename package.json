@@ -26,11 +26,12 @@
  "dependencies": {
   "lodash": "^4.17.4",
   "mathjs": "^3.17.0",
+  "native-base": "^2.3.3",
   "react": "16.1.1",
   "react-native": "0.50.4",
   "react-native-beacons-manager": "^1.0.1",
   "react-native-bluetooth-state": "^2.0.0",
-  "react-native-maps": "^0.17.1",
+  "react-navigation": "^1.0.0-beta.21",
   "trilateration": "0.0.1"
  },
  "devDependencies": {
