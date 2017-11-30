@@ -38,6 +38,7 @@
 		F922A9BF339B403780A46FB7 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF15EB746B97410F9D1DE94A /* rubicon-icon-font.ttf */; };
 		10C5070338804FAB9FD9E117 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A0E80CA8AED4D75BE9091AB /* SimpleLineIcons.ttf */; };
 		81C6EA8E3A3E4E5AB9C7505B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F926016D12E541DB8F3D5A5D /* Zocial.ttf */; };
+		DD12A7E6598B4E908DB0F7B7 /* libRNSensors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F809184E3E264AB09F4EDEA8 /* libRNSensors.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +281,8 @@
 		FF15EB746B97410F9D1DE94A /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7A0E80CA8AED4D75BE9091AB /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F926016D12E541DB8F3D5A5D /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		871715E119D64D42BFC269BB /* RNSensors.xcodeproj */ = {isa = PBXFileReference; name = "RNSensors.xcodeproj"; path = "../node_modules/react-native-sensors/ios/RNSensors.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F809184E3E264AB09F4EDEA8 /* libRNSensors.a */ = {isa = PBXFileReference; name = "libRNSensors.a"; path = "libRNSensors.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +312,7 @@
 				216B8C1D692B40C79FCFCB13 /* libRNiBeacon.a in Frameworks */,
 				05A600643BD949668062595D /* libRNBluetoothState.a in Frameworks */,
 				379F831DA17A443885165061 /* libAirMaps.a in Frameworks */,
+				DD12A7E6598B4E908DB0F7B7 /* libRNSensors.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +476,7 @@
 				074F9976827F4357B1225632 /* RNiBeacon.xcodeproj */,
 				CD2CA9AF25BE4B3EA468480F /* RNBluetoothState.xcodeproj */,
 				A136150EBCBD4FFE948E3C53 /* AirMaps.xcodeproj */,
+				871715E119D64D42BFC269BB /* RNSensors.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -961,6 +966,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -968,6 +974,10 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactNativeBeaconExample.app/reactNativeBeaconExample";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-sensors\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -985,6 +995,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -992,6 +1003,10 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactNativeBeaconExample.app/reactNativeBeaconExample";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-sensors\ios",
+				);
 			};
 			name = Release;
 		};
@@ -1011,6 +1026,10 @@
 				);
 				PRODUCT_NAME = reactNativeBeaconExample;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-sensors\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1029,6 +1048,10 @@
 				);
 				PRODUCT_NAME = reactNativeBeaconExample;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-sensors\ios",
+				);
 			};
 			name = Release;
 		};

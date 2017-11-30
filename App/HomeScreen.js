@@ -24,6 +24,11 @@ export default class HomeScreen extends React.Component {
             onPress={() => this.props.navigation.navigate("BeaconsScreen")}>
             <Text>Goto Beacons</Text>
           </Button>
+          <Button full rounded primary
+            style={{ marginTop: 10 }}
+            onPress={() => this.props.navigation.navigate("GyroscopeAccelerometerScreen")}>
+            <Text>Goto GyroscopeAccelerometerScreen</Text>
+          </Button>
         </Content>
       </Container>
     );

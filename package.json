@@ -31,6 +31,7 @@
   "react-native": "0.50.4",
   "react-native-beacons-manager": "^1.0.1",
   "react-native-bluetooth-state": "^2.0.0",
+  "react-native-sensors": "^2.4.1",
   "react-navigation": "^1.0.0-beta.21",
   "trilateration": "0.0.1"
  },
