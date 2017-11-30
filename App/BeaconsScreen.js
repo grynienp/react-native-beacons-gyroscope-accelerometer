@@ -13,7 +13,7 @@
  }                     from 'react-native';
  import { Container, Header, Title, Left, Right, Icon, Button, Body, Content, } from "native-base";
  import Beacons        from 'react-native-beacons-manager';
- import moment   from 'moment';
+//  import moment   from 'moment';
 
  /**
   * uuid of YOUR BEACON (change to yours)
