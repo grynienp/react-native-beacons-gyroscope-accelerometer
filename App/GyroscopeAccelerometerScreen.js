@@ -61,18 +61,18 @@
 
    render() {
     const {
-      acceleration,
+      // acceleration,
       gyroscope,
     } = this.state;
 
      return (
        <View style={styles.row}>
-         <Text>
+         {/* <Text>
          Acceleration:
          </Text>
          <Text>
          {acceleration.x + '/' + acceleration.y + '/' + acceleration.z}
-         </Text>
+         </Text> */}
          <Text>
          Gyroscope:
          </Text>

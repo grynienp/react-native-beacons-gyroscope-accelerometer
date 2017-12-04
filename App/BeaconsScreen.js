@@ -19,7 +19,8 @@
   * uuid of YOUR BEACON (change to yours)
   * @type {String} uuid
   */
- const UUID = 'baae3e10-504e-11e4-916c-0800200c9a66';
+  //const UUID = 'baae3e10-504e-11e4-916c-0800200c9a66';
+ const UUID = 'f7826da6-4fa2-4e98-8024-bc5b71e0893e';
  const REGION1 = "REGION1";
  const TIME_FORMAT = 'MM/DD/YYYY HH:mm:ss';
  const region = {
@@ -70,7 +71,7 @@
      Beacons
        .startRangingBeaconsInRegion(
         REGION1,
-         uuid
+         null
        )
        .then(
          () => console.log('Beacons ranging started succesfully')
@@ -83,14 +84,9 @@
    componentWillUnmount() {
 
     Beacons
-    .stopMonitoringForRegion(REGION1) // or like  < v1.0.7: .stopMonitoringForRegion(identifier, uuid)
-    .then(() => console.log('Beacons monitoring stopped succesfully'))
-    .catch(error => console.log(`Beacons monitoring not stopped, error: ${error}`));
- 
-    // remove beacons events we registered at componentDidMount
-    this.regionDidEnterEvent.remove();
-    this.regionDidExitEvent.remove();
-
+    .stopRangingBeaconsInRegion(REGION1) 
+    .then(() => console.log('Beacons ranging stopped succesfully'))
+    .catch(error => console.log(`Beacons ranging not stopped, error: ${error}`));
 
  
     // stop monitoring beacons:
