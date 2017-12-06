@@ -19,9 +19,9 @@
    updateInterval: 100, // defaults to 100ms
  });
  
- const gyroscopeObservable = new Gyroscope({
-   updateInterval: 2000, // defaults to 100ms
- });
+//  const gyroscopeObservable = new Gyroscope({
+//    updateInterval: 2000, // defaults to 100ms
+//  });
  
 
 
@@ -48,37 +48,37 @@
         acceleration,
       }));
 
-    gyroscopeObservable
-      .subscribe(gyroscope => this.setState({
-        gyroscope,
-      }));
+    // gyroscopeObservable
+    //   .subscribe(gyroscope => this.setState({
+    //     gyroscope,
+    //   }));
   }
 
   componentWillUnmount() {
     accelerationObservable.stop();
-    gyroscopeObservable.stop();
+    // gyroscopeObservable.stop();
   }
 
    render() {
     const {
-      // acceleration,
-      gyroscope,
+       acceleration
+     // gyroscope,
     } = this.state;
 
      return (
        <View style={styles.row}>
-         {/* <Text>
+         <Text>
          Acceleration:
          </Text>
          <Text>
-         {acceleration.x + '/' + acceleration.y + '/' + acceleration.z}
-         </Text> */}
-         <Text>
+         {Number(acceleration.x).toFixed(1) + '/' + Number(acceleration.y).toFixed(1) + '/' + Number(acceleration.z).toFixed(1)}
+         </Text>
+         {/* <Text>
          Gyroscope:
          </Text>
          <Text>
          {gyroscope.x + '/' + gyroscope.y + '/' + gyroscope.z}
-         </Text>
+         </Text> */}
        </View>
      );
    }

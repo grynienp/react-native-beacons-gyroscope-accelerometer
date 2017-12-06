@@ -13,14 +13,14 @@
  }                     from 'react-native';
  import { Container, Header, Title, Left, Right, Icon, Button, Body, Content, } from "native-base";
  import Beacons        from 'react-native-beacons-manager';
-//  import moment   from 'moment';
+  import moment   from 'moment';
 
  /**
   * uuid of YOUR BEACON (change to yours)
   * @type {String} uuid
   */
-  //const UUID = 'baae3e10-504e-11e4-916c-0800200c9a66';
- const UUID = 'f7826da6-4fa2-4e98-8024-bc5b71e0893e';
+  const UUID = 'baae3e10-504e-11e4-916c-0800200c9a66';
+ // const UUID = 'f7826da6-4fa2-4e98-8024-bc5b71e0893e';
  const REGION1 = "REGION1";
  const TIME_FORMAT = 'MM/DD/YYYY HH:mm:ss';
  const region = {
@@ -63,41 +63,41 @@
 
 
      // Monitor beacons inside the region
-    //  Beacons
-    //  .startMonitoringForRegion(region) // or like  < v1.0.7: .startRangingBeaconsInRegion(identifier, uuid)
-    //  .then(() => console.log('Beacons monitoring started succesfully'))
-    //  .catch(error => console.log(`Beacons monitoring not started, error: ${error}`));
-
      Beacons
-       .startRangingBeaconsInRegion(
-        REGION1,
-         null
-       )
-       .then(
-         () => console.log('Beacons ranging started succesfully')
-       )
-       .catch(
-         error => console.log(`Beacons ranging not started, error: ${error}`)
-       );
+     .startMonitoringForRegion(region)
+     .then(() => console.log('Beacons monitoring started succesfully'))
+     .catch(error => console.log(`Beacons monitoring not started, error: ${error}`));
+
+    //  Beacons
+    //    .startRangingBeaconsInRegion(
+    //     REGION1,
+    //      null
+    //    )
+    //    .then(
+    //      () => console.log('Beacons ranging started succesfully')
+    //    )
+    //    .catch(
+    //      error => console.log(`Beacons ranging not started, error: ${error}`)
+    //    );
    }
 
    componentWillUnmount() {
 
-    Beacons
-    .stopRangingBeaconsInRegion(REGION1) 
-    .then(() => console.log('Beacons ranging stopped succesfully'))
-    .catch(error => console.log(`Beacons ranging not stopped, error: ${error}`));
+    // Beacons
+    // .stopRangingBeaconsInRegion(REGION1) 
+    // .then(() => console.log('Beacons ranging stopped succesfully'))
+    // .catch(error => console.log(`Beacons ranging not stopped, error: ${error}`));
 
  
     // stop monitoring beacons:
-    // Beacons
-    // .stopMonitoringForRegion(region) // or like  < v1.0.7: .stopMonitoringForRegion(identifier, uuid)
-    // .then(() => console.log('Beacons monitoring stopped succesfully'))
-    // .catch(error => console.log(`Beacons monitoring not stopped, error: ${error}`));
+    Beacons
+    .stopMonitoringForRegion(region) // or like  < v1.0.7: .stopMonitoringForRegion(identifier, uuid)
+    .then(() => console.log('Beacons monitoring stopped succesfully'))
+    .catch(error => console.log(`Beacons monitoring not stopped, error: ${error}`));
  
-    // // remove beacons events we registered at componentDidMount
-    // this.regionDidEnterEvent.remove();
-    // this.regionDidExitEvent.remove();
+    // remove beacons events we registered at componentDidMount
+    this.regionDidEnterEvent.remove();
+    this.regionDidExitEvent.remove();
   }
 
    componentDidMount() {
@@ -105,33 +105,33 @@
      // component state aware here - attach events
      //
      // Ranging:
-     this.beaconsDidRange = DeviceEventEmitter.addListener(
-       'beaconsDidRange',
-       (data) => {
-         console.log(data);
-         this.setState({
-           dataSource: this.state.dataSource.cloneWithRows(data.beacons)
-         });
-       }
-     );
+    //  this.beaconsDidRange = DeviceEventEmitter.addListener(
+    //    'beaconsDidRange',
+    //    (data) => {
+    //      console.log(data);
+    //      this.setState({
+    //        dataSource: this.state.dataSource.cloneWithRows(data.beacons)
+    //      });
+    //    }
+    //  );
 
-    // this.regionDidEnterEvent =  DeviceEventEmitter.addListener(
-    //   'regionDidEnter',
-    //   ({ identifier, uuid, minor, major }) => {
-    //     console.log('monitoring - regionDidEnter data: ', { identifier, uuid, minor, major });
-    //     const time = moment().format(TIME_FORMAT);
-    //     this.setState({ regionEnterDatasource: this.state.regionEnterDatasource.cloneWithRows([{ identifier, uuid, minor, major, time }]) });
-    //   }
-    // );
+    this.regionDidEnterEvent =  DeviceEventEmitter.addListener(
+      'regionDidEnter',
+      ({ identifier, uuid, minor, major }) => {
+        console.log('monitoring - regionDidEnter data: ', { identifier, uuid, minor, major });
+        const time = moment().format(TIME_FORMAT);
+        this.setState({ regionEnterDatasource: this.state.regionEnterDatasource.cloneWithRows([{ identifier, uuid, minor, major, time }]) });
+      }
+    );
  
-    // this.regionDidExitEvent =  DeviceEventEmitter.addListener(
-    //   'regionDidExit',
-    //   ({ identifier, uuid, minor, major }) => {
-    //     console.log('monitoring - regionDidExit data: ', { identifier, uuid, minor, major });
-    //     const time = moment().format(TIME_FORMAT);
-    //    this.setState({ regionExitDatasource: this.state.regionExitDatasource.cloneWithRows([{ identifier, uuid, minor, major, time }]) });
-    //   }
-    // );
+    this.regionDidExitEvent =  DeviceEventEmitter.addListener(
+      'regionDidExit',
+      ({ identifier, uuid, minor, major }) => {
+        console.log('monitoring - regionDidExit data: ', { identifier, uuid, minor, major });
+        const time = moment().format(TIME_FORMAT);
+       this.setState({ regionExitDatasource: this.state.regionExitDatasource.cloneWithRows([{ identifier, uuid, minor, major, time }]) });
+      }
+    );
    }
 
 
